@@ -32,11 +32,11 @@ function App() {
         Name: "Soccer"
       },
       {
-        Id: 2,
+        Id: 3,
         Name: "Basketball"
       },
       {
-        Id: 3,
+        Id: 6,
         Name: "Baseball"
       }
     ]
@@ -65,18 +65,18 @@ function App() {
   return (
     <div>
       <div>
-        {sports.map((sport) => {
+        {sports.map(({ Id, Name }, index) => {
           return (
-            <div key={sport.Id}>
+            <div key={index}>
               <input
                     type="checkbox"
-                    id={`sport-checkbox-${sport.Id}`}
-                    name={sport.Name}
-                    value={sport.Name}
-                    checked={checkedState[sport.Id-1]}
-                    onChange={() => handleOnChange(sport.Id-1)}
+                    id={`sport-checkbox-${index}`}
+                    name={Id}
+                    value={Id}
+                    checked={checkedState[index]}
+                    onChange={() => handleOnChange(index)}
                   />
-                  <label htmlFor={`sport-checkbox-${sport.Id}`}>{sport.Name}</label>
+                  <label htmlFor={`sport-checkbox-${index}`}>{Name}</label>
             </div>
             );}
         )}
